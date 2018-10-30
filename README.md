@@ -2,6 +2,10 @@
 
 TODO: Write a gem description
 
+## Dependencies
+
+* ffmpeg needs to be built with "--enable-libass" optioin.
+
 ## Installation
 
 Add this line to your application's Gemfile:
