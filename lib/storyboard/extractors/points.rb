@@ -54,7 +54,7 @@ module Storyboard::Extractor
 
         interval = "%#{Titlekit::ASS.build_timecode(runner.end_time)}" 
 
-        Open3.popen3('./resources/binaries/ffprobe', "-read_intervals", interval,  "-show_frames", "-of", "compact=p=0", "-f", "lavfi", %(movie=#{runner.video.path},select=gt(scene\\,.30)), "-pretty") {|stdin, stdout, stderr, wait_thr|
+        Open3.popen3('ffprobe', "-read_intervals", interval,  "-show_frames", "-of", "compact=p=0", "-f", "lavfi", %(movie=#{runner.video.path},select=gt(scene\\,.30)), "-pretty") {|stdin, stdout, stderr, wait_thr|
            begin
               o = stdout.gets
               next if o.nil?
