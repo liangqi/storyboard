@@ -29,9 +29,9 @@ module Storyboard
     end
 
     def self.check
-      raise Exception.new("ffmpeg not found. Requires at least 2.1") unless has_ffmpeg?(nil, '2.1')
-      raise Exception.new("ffprobe not found. Requires at least 2.1") unless has_ffprobe?(nil, '2.1')
-      raise Exception.new("convert not found. Requires at least 6.8") unless has_convert?(nil, '6.8')
+      raise Exception.new("ffmpeg not found. Requires at least 2.1") unless has_ffmpeg?(nil, '4.0')
+      raise Exception.new("ffprobe not found. Requires at least 2.1") unless has_ffprobe?(nil, '4.0')
+      raise Exception.new("convert not found. Requires at least 6.8") unless has_convert?(nil, '7.0')
     end
 
     def self.binpath
@@ -64,11 +64,11 @@ module Storyboard
       end
     end
 
-    def self.has_ffmpeg?(path=nil, version='2.1')
+    def self.has_ffmpeg?(path=nil, version='4.0')
       @@ffmpeg = self.has?("ffmpeg", "-version", nil, version, /ffmpeg version (\d.\d.\d)/)
     end
 
-    def self.has_ffprobe?(path=nil, version='2.1')
+    def self.has_ffprobe?(path=nil, version='4.0')
       @@ffprobe = self.has?("ffprobe", "-version", path, version, /ffprobe version (\d.\d.\d)/)
     end
 
@@ -76,7 +76,7 @@ module Storyboard
       self.has?("gifsicle", "--version", path, version, /Gifsicle (\d.\d+)/)
     end
 
-    def self.has_convert?(path=nil, version='6.8')
+    def self.has_convert?(path=nil, version='7.0')
       @@convert = self.has?("convert", "--version", path, version, /ImageMagick (\d.\d+)/)
     end    
   end
