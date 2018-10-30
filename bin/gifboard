@@ -7,7 +7,7 @@ require 'storyboard'
 require 'trollop'
 
 gif = Trollop::Parser.new do
-  version "Gifboard 0.4.0"
+  version "Gifboard 0.5.2"
   banner <<-EOS
 Make you some GIFs out of videos.
 

@@ -9,4 +9,5 @@ gem 'subtitle_it'
 gem 'addic7ed'
 gem 'osdb'
 gem 'suby'
+gem 'xmlrpc'
 gemspec
